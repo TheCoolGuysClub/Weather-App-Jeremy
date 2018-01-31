@@ -18,9 +18,18 @@ geocode.geocodeAddress(argv.a,(errorMessage,results) => {
   //if errormessage is undefined then it treated it as false
   //if it is definded, then it treated it as true
   if (errorMessage) {
-
+    console.log(errorMessage);
   }else{
-    console.log(results);
+    console.log(results.address);
+    console.log(results.latitude);
+    console.log(results.longitude);
+    request({
+      url:`https://api.darksky.net/forecast/54403f6bcab9b82fb21d3f6ba27a4656/${results.latitude},${results.longitude}`,
+      json:true
+    }, (error, response, body) => {
+      console.log(("error: ", error));
+      console.log("body: ", JSON.stringify(body, undefined, 2));
+    })
   }
   // console.log(errorMessage);
   // console.log(results);
