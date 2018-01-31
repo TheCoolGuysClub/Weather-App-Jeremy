@@ -21,14 +21,27 @@ geocode.geocodeAddress(argv.a,(errorMessage,results) => {
     console.log(errorMessage);
   }else{
     console.log(results.address);
-    console.log(results.latitude);
-    console.log(results.longitude);
-    request({
-      url:`https://api.darksky.net/forecast/54403f6bcab9b82fb21d3f6ba27a4656/${results.latitude},${results.longitude}`,
-      json:true
-    }, (error, response, body) => {
-      console.log(("error: ", error));
-      console.log("body: ", JSON.stringify(body, undefined, 2));
+    weather.getWeather(results.latitude, results.longitude, (errorMessage, weatherResults) => )
+    // console.log(results.address);
+    // console.log(results.latitude);
+    // console.log(results.longitude);
+    // request({
+    //   url:`https://api.darksky.net/forecast/54403f6bcab9b82fb21d3f6ba27a4656/${results.latitude}, ${results.longitude}`,
+    //   json:true
+    // }, (error, response, body) => {
+    //   if (!error && body.code != 400) {
+    //     const temperature = body.currently.temperature;
+    //     const apparentTemperature = body.currently.apparentTemperature;
+    //     const summary = body.currently.summary;
+    //     const icon = body.currently.icon;
+    //     const timezone = body.currently.timezone;
+    //     console.log(`the temperature is ${temperature} degrees, but it feels like it's ${apparentTemperature} degrees.`);
+    //     console.log(`You are in the ${timezone} timezone and it will be ${summary} with ${icon}`);
+    //   } else {
+    //     console.log(`unable to fetch temp`);
+    //   }
+      // console.log(("error: ", error));
+      // console.log("body: ", JSON.stringify(body, undefined, 2));
     })
   }
   // console.log(errorMessage);
