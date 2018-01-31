@@ -21,7 +21,9 @@ geocode.geocodeAddress(argv.a,(errorMessage,results) => {
     console.log(errorMessage);
   }else{
     console.log(results.address);
-    weather.getWeather(results.latitude, results.longitude, (errorMessage, weatherResults) => )
+    weather.getWeather(results.latitude, results.longitude, (errorMessage, weatherResults) => {
+        console.log(`the temperature is ${weatherResults.temperature} degrees, but it feels like it's ${weatherResults.apparentTemperature} degrees.`);
+    })
     // console.log(results.address);
     // console.log(results.latitude);
     // console.log(results.longitude);
@@ -42,7 +44,7 @@ geocode.geocodeAddress(argv.a,(errorMessage,results) => {
     //   }
       // console.log(("error: ", error));
       // console.log("body: ", JSON.stringify(body, undefined, 2));
-    })
+    // })
   }
   // console.log(errorMessage);
   // console.log(results);
