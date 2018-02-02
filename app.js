@@ -5,7 +5,7 @@ const geoweather = require('./weather/weather.js');
 const argv = yargs
 .options({
   address:{
-  demanOption:true,
+  demandOption:true,
   alias:'a',
   describe:'Address to fetch'
   }

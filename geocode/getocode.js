@@ -11,7 +11,7 @@ const geocodeAddress= (address,callback)=>{
   // console.log("https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress&key=}");
   // request({},() => )
   request({
-    url:/*`is the little thing under esc`*/`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${key}`,
+    url:`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${key}`,
     json:true
   },(error,response,body)=>{
     if(body.status ==="ZERO_RESULTS"){
