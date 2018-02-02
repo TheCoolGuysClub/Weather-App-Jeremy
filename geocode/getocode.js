@@ -11,15 +11,16 @@ const geocodeAddress= (address,callback)=>{
   // console.log("https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress&key=}");
   // request({},() => )
   request({
-    url:`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${key}`,
+    url:/*`is the little thing under esc`*/`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${key}`,
     json:true
   },(error,response,body)=>{
     if(body.status ==="ZERO_RESULTS"){
-      callback("This address does not exist",undefined);
+      // console.log("This address does not exists");
+      callback("This address does not exists",undefined);
     }else if (body.status ==="OK"){
       callback(undefined,{
         address:body.results[0].formatted_address,
-        latitude:body.results[0].geometry.location.lat,
+        lagitude:body.results[0].geometry.location.lat,
         longitude:body.results[0].geometry.location.lng
       })
     }
